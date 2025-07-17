@@ -12,8 +12,17 @@ export const userApiSlice = createApi({
         getUsers:builder.query<{ [key: string]: User },void>({
             query:() => '/users',
         }),
+        postUser:builder.mutation<User,User>({
+            query:(user) => {
+                return {
+                    url:'/users',
+                    method:'POST',
+                    body:user
+                }
+            }
+        })
     }),
 })
 
 
-export const {useGetUsersQuery} = userApiSlice;
+export const {useGetUsersQuery,usePostUserMutation} = userApiSlice;
