@@ -8,7 +8,7 @@ interface Address {
 
 
 export interface User {
-    id: string,
+    _id: string,
     firstName: string,
     lastName: string,
     email: string,
@@ -18,3 +18,7 @@ export interface User {
     imageUrl: string,
     address: Address
 };
+
+export interface FetchDataType {
+  data: { [key: string]: User };
+}

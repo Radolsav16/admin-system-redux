@@ -1,5 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { User } from "../user.type";
+import { User } from "../user.type"
+
+
 
 export const userApiSlice = createApi({
     reducerPath:'api',
@@ -7,7 +9,7 @@ export const userApiSlice = createApi({
         baseUrl:'http://localhost:3030/jsonstore',
     }),
     endpoints: builder  =>({
-        getUsers:builder.query<User,void>({
+        getUsers:builder.query<{ [key: string]: User },void>({
             query:() => '/users',
         }),
     }),
