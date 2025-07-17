@@ -1,6 +1,15 @@
 import React from "react"
+import { useFormStatus } from "react-dom"
 
-export default function Form():React.JSX.Element{
+type Props = {
+  toggleForm:() => void
+}
+
+
+
+const Form:React.FC<Props> = ({toggleForm}) => {
+    
+  
     return(
         <>
             <div className="overlay">
@@ -9,7 +18,7 @@ export default function Form():React.JSX.Element{
       <div className="user-container">
         <header className="headers">
           <h2>Edit User/Add User</h2>
-          <button className="btn close">
+          <button className="btn close" onClick={toggleForm}>
             <svg
               aria-hidden="true"
               focusable="false"
@@ -121,7 +130,7 @@ export default function Form():React.JSX.Element{
             <button id="action-save" className="btn" type="submit">
               Save
             </button>
-            <button id="action-cancel" className="btn" type="button">
+            <button id="action-cancel" className="btn" type="button" onClick={toggleForm}>
               Cancel
             </button>
           </div>
@@ -132,3 +141,5 @@ export default function Form():React.JSX.Element{
         </>
     )
 }
+
+export default Form;
